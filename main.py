@@ -130,7 +130,11 @@ while iniciar_trivia == True:
 
   
   # Pregunta 2
-  print("\nLa siguietne pregunta duplicará tu puntaje si es correcto\nO lo reducirá a la mitad si es totalmente incorrecto.")
+  if puntaje <= 0:
+    print('\nEs tu hora de suerte! ya que vas teniendo un puntaje muy bajo lo subiremos a 2 puntos!')
+    puntaje =  2
+  time.sleep(3)
+  print("\nLa siguiente pregunta duplicará tu puntaje si es correcto,\nO lo reducirá a la mitad si es totalmente incorrecto.")
   print(BLUE)
   print ("\n2) ¿Qué compuesto químico es el principal causante del calentamiento global?")
   print ("a) Dióxido de carbono(CO2)")
@@ -150,16 +154,17 @@ while iniciar_trivia == True:
   
   while rpta not in ('a', 'b', 'c', 'd'):
     rpta = input('\nElige una alternativa entre a, b, c o d: ')
-    
+
+  
   if rpta == 'a':
     print('\nCorrecto!')
     puntaje *= 2
-    print('\nTu puntaje se ha duplicado!')
+    ('\nTu puntaje se ha duplicado!')
   elif rpta == 'b':
     print('\nEse elemento sí ocasiona calentamiento global, mas no es el principal causante.')
     gana = 5
     puntaje += gana
-    print('\n:(  Haz ganado', gana, 'puntos')
+    print('\nHaz ganado solamente', gana, 'puntos')
   elif rpta == 'c':
     print('\nEste elemento está implicado con la capa de ozono')
     pierde = 5
@@ -169,6 +174,7 @@ while iniciar_trivia == True:
     print("\nEsto es algo loco! La kirptonita sólo existe en Superman.")
     puntaje /= 2
     print("\nTu puntaje se ha reducido a la mitad :(")
+  
   time.sleep(1)
   print("\nAhora tienes", puntaje, "puntos")
 
